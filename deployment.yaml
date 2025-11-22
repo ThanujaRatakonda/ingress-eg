@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: userdata
-          image: thanujaratakonda/ingress-eg
+          image: thanujaratakonda/ingress-eg:2
           ports:
             - containerPort: 5000
           volumeMounts:
