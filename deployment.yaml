@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userdata-deployment
+  labels:
+    app: userdata
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: userdata
+  template:
+    metadata:
+      labels:
+        app: userdata
+    spec:
+      containers:
+        - name: userdata
+          image: thanujaratakonda/ingress-eg
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: userdata-storage
+              mountPath: /app/data
+      volumes:
+        - name: userdata-storage
+          emptyDir: {}
